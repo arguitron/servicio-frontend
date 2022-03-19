@@ -13,7 +13,7 @@ export const Form = () => {
     aMaterno: "",
     egreso: "",
     correo: "",
-    numOfFiles: 0,
+    numOfFiles: "",
     file1: "",
     file2: "",
     file3: "",
@@ -23,8 +23,15 @@ export const Form = () => {
 
   const handleShowInputFiles = (e) => {
     setState({
-      state,
-      numOfFiles: e.target.value,
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFiles = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.files[0].name,
     });
   };
 
@@ -80,7 +87,13 @@ export const Form = () => {
         </div>
         <div className="file-inputs">
           {fileInpunts.slice(0, state.numOfFiles).map((fileName, index) => (
-            <input key={index} type="file" name={fileName} />
+            <input
+              className="custom-input"
+              key={index}
+              type="file"
+              name={fileName}
+              onChange={handleFiles}
+            />
           ))}
         </div>
 
