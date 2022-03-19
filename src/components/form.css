@@ -1,0 +1,19 @@
+.text-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.custom-input {
+  width: 300px;
+  margin-bottom: 5px;
+}
